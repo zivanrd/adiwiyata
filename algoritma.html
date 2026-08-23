@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Algoritma</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            background:#f4f4f4;
+            color:#333;
+            line-height:1.6;
+        }
+
+        header{
+            background:#56e96f;
+            color:white;
+            padding:25px;
+            text-align:center;
+        }
+
+        nav{
+            background:#1d5fb8;
+            display:flex;
+            justify-content:center;
+            gap:20px;
+            padding:12px;
+        }
+
+        nav a{
+            color:white;
+            text-decoration:none;
+            font-weight:bold;
+        }
+
+        nav a:hover{
+            color:yellow;
+        }
+
+        .container{
+            width:90%;
+            max-width:1100px;
+            margin:30px auto;
+            display:grid;
+            grid-template-columns:2fr 1fr;
+            gap:20px;
+        }
+
+        .posts{
+            display:flex;
+            flex-direction:column;
+            gap:20px;
+        }
+
+        .card{
+            background:white;
+            padding:20px;
+            border-radius:10px;
+            box-shadow:0 5px 10px rgba(0,0,0,.1);
+        }
+
+        .card img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    border-radius:10px;
+    margin:10px 0;
+        }
+
+        .card button{
+            background:#2d89ef;
+            color:white;
+            border:none;
+            padding:10px 18px;
+            border-radius:5px;
+            cursor:pointer;
+            margin-top:10px;
+        }
+
+        .card button:hover{
+            background:#1d5fb8;
+        }
+
+        aside{
+            display:flex;
+            flex-direction:column;
+            gap:20px;
+        }
+
+        footer{
+            text-align:center;
+            background:#222;
+            color:white;
+            padding:20px;
+            margin-top:30px;
+        }
+
+        @media(max-width:800px){
+            .container{
+                grid-template-columns:1fr;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<header>
+    <h1>🧠 Cara yang Benar dalam Menyelesaikan Masalah dengan Algoritma</h1>
+    <p>Belajar berpikir logis dan sistematis dalam memecahkan berbagai masalah.</p>
+</header>
+
+<div class="container">
+
+<div class="card">
+
+<h2>Apa Itu Algoritma?</h2>
+
+<p>
+Algoritma adalah serangkaian langkah yang disusun secara logis, sistematis, dan berurutan untuk menyelesaikan suatu masalah atau mencapai tujuan tertentu. Dalam dunia informatika, algoritma merupakan dasar dari setiap program komputer. Sebelum seorang programmer menulis kode, ia harus terlebih dahulu membuat algoritma agar program yang dibuat dapat bekerja sesuai dengan tujuan.
+</p>
+
+<p>
+Namun algoritma tidak hanya digunakan dalam dunia komputer. Dalam kehidupan sehari-hari kita juga sering menggunakan algoritma tanpa disadari. Misalnya ketika membuat mi instan, mengendarai sepeda, memasak nasi, atau mengerjakan soal matematika. Semua kegiatan tersebut memiliki langkah-langkah yang harus dilakukan secara berurutan agar hasilnya sesuai dengan yang diinginkan.
+</p>
+
+<hr>
+
+<h2>Mengapa Algoritma Penting?</h2>
+
+<p>
+Algoritma memiliki peran yang sangat penting karena membantu seseorang menyelesaikan masalah dengan cara yang lebih teratur. Tanpa algoritma, penyelesaian masalah bisa menjadi berantakan dan membutuhkan waktu lebih lama.
+</p>
+
+<p>Manfaat algoritma antara lain:</p>
+
+<ul>
+<li>Menyusun langkah kerja yang jelas.</li>
+<li>Mengurangi kemungkinan terjadinya kesalahan.</li>
+<li>Membuat penyelesaian masalah menjadi lebih cepat.</li>
+<li>Mempermudah proses pembuatan program.</li>
+<li>Mudah dipahami oleh orang lain.</li>
+<li>Dapat digunakan kembali untuk masalah yang serupa.</li>
+</ul>
+
+<hr>
+
+<h2>Langkah-Langkah Menyelesaikan Masalah dengan Algoritma</h2>
+
+<h3>1. Memahami Masalah</h3>
+
+<p>
+Langkah pertama adalah memahami masalah yang sedang dihadapi. Cari tahu tujuan yang ingin dicapai, informasi apa yang tersedia, dan kendala yang mungkin muncul.
+</p>
+
+<h3>2. Menentukan Input</h3>
+
+<p>
+Input adalah data yang diperlukan agar algoritma dapat bekerja. Misalnya pada program menghitung luas persegi panjang, inputnya adalah panjang dan lebar.
+</p>
+
+<h3>3. Menentukan Output</h3>
+
+<p>
+Output merupakan hasil yang ingin diperoleh setelah semua proses selesai dilakukan.
+</p>
+
+<h3>4. Menyusun Langkah-Langkah</h3>
+
+<p>
+Tuliskan langkah penyelesaian secara berurutan mulai dari awal hingga akhir. Langkah tersebut harus mudah dipahami dan tidak membingungkan.
+</p>
+
+<h3>5. Menguji Algoritma</h3>
+
+<p>
+Setelah algoritma selesai dibuat, lakukan pengujian menggunakan contoh data untuk memastikan bahwa hasilnya benar.
+</p>
+
+<h3>6. Memperbaiki Jika Ada Kesalahan</h3>
+
+<p>
+Jika ditemukan kesalahan saat pengujian, lakukan perbaikan hingga algoritma menghasilkan output yang sesuai.
+</p>
+
+<hr>
+
+<h2>Contoh Algoritma Kehidupan Sehari-hari</h2>
+
+<h3>Contoh 1: Membuat Teh Manis</h3>
+
+<ol>
+<li>Siapkan gelas.</li>
+<li>Masukkan satu kantong teh.</li>
+<li>Tuangkan air panas.</li>
+<li>Diamkan selama beberapa menit.</li>
+<li>Tambahkan gula sesuai selera.</li>
+<li>Aduk hingga gula larut.</li>
+<li>Teh siap diminum.</li>
+</ol>
+
+<hr>
+
+<h3>Contoh 2: Menghitung Luas Persegi Panjang</h3>
+
+<p><b>Input:</b></p>
+
+<ul>
+<li>Panjang</li>
+<li>Lebar</li>
+</ul>
+
+<p><b>Proses:</b></p>
+
+<ol>
+<li>Masukkan nilai panjang.</li>
+<li>Masukkan nilai lebar.</li>
+<li>Hitung luas = panjang × lebar.</li>
+<li>Tampilkan hasil luas.</li>
+</ol>
+
+<p><b>Output:</b></p>
+
+<p>Luas persegi panjang.</p>
+
+<hr>
+
+<h2>Contoh Algoritma dalam Bentuk Pseudocode</h2>
+
+<pre>
+Mulai
+
+Input panjang
+Input lebar
+
+luas = panjang * lebar
+
+Tampilkan luas
+
+Selesai
+</pre>
+
+<p>
+Pseudocode merupakan cara menuliskan algoritma menggunakan bahasa yang mudah dipahami manusia tanpa harus mengikuti aturan bahasa pemrograman tertentu.
+</p>
+
+<hr>
+
+<h2>Kesalahan yang Sering Terjadi Saat Membuat Algoritma</h2>
+
+<ul>
+<li>Langkah tidak berurutan.</li>
+<li>Ada langkah yang terlewat.</li>
+<li>Input tidak sesuai kebutuhan.</li>
+<li>Output tidak jelas.</li>
+<li>Tidak melakukan pengujian algoritma.</li>
+<li>Menggunakan langkah yang terlalu rumit.</li>
+</ul>
+
+<hr>
+
+<h2>Tips Membuat Algoritma yang Baik</h2>
+
+<ul>
+<li>Gunakan bahasa yang sederhana.</li>
+<li>Susun langkah secara berurutan.</li>
+<li>Pastikan setiap langkah memiliki tujuan.</li>
+<li>Hindari langkah yang tidak diperlukan.</li>
+<li>Uji algoritma menggunakan beberapa contoh.</li>
+<li>Perbaiki jika masih ditemukan kesalahan.</li>
+</ul>
+
+<hr>
+
+<h2>Kesimpulan</h2>
+
+<p>
+Algoritma adalah urutan langkah-langkah logis untuk menyelesaikan suatu masalah secara efektif dan efisien. Dengan memahami masalah, menentukan input dan output, menyusun langkah penyelesaian, melakukan pengujian, serta memperbaiki kesalahan yang ditemukan, seseorang dapat menghasilkan solusi yang lebih tepat. Kemampuan berpikir algoritmik tidak hanya berguna dalam dunia pemrograman, tetapi juga sangat bermanfaat dalam kehidupan sehari-hari karena membantu kita berpikir lebih teratur, sistematis, dan logis ketika menghadapi berbagai persoalan.
+</p>
+
+<br>
+
+<button class="btn" onclick="window.location.href='index.html'">
+🏠 Kembali ke Beranda
+</button>
+
+</div>
+
+</div>
+
+</body>
+</html>
