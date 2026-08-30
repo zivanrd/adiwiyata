@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+
     <link rel="stylesheet" href="style.css">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Lingkungan Hidup</title>
 
+
     <style>
+
+        /* =========================================
+           DASAR
+        ========================================= */
+
         *{
             margin:0;
             padding:0;
@@ -15,205 +24,1207 @@
         }
 
         body{
-            background:#f4f4f400;
+            background:#eef8ec;
             color:#333;
             line-height:1.6;
         }
 
-        header{
-            background:#9ee698;
-            color:rgba(253, 252, 252, 0.925);
-            padding:25px;
-            text-align:center;
+
+        /* =========================================
+           OPENING
+        ========================================= */
+
+        #opening{
+
+            position:fixed;
+
+            inset:0;
+
+            z-index:9999;
+
+            display:flex;
+
+            justify-content:center;
+
+            align-items:center;
+
+            overflow:hidden;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    #ffffff 0%,
+                    #f8fff5 40%,
+                    #d8efd1 100%
+                );
+
+            transition:
+                opacity 1s ease,
+                visibility 1s ease;
         }
+
+
+        /* Opening selesai */
+
+        #opening.hide{
+
+            opacity:0;
+
+            visibility:hidden;
+        }
+
+
+        /* =========================================
+           ISI OPENING
+        ========================================= */
+
+        .opening-content{
+
+            width:min(850px, 85%);
+
+            text-align:center;
+
+            position:relative;
+
+            z-index:5;
+        }
+
+
+        /* Judul */
+
+        .opening-content h1{
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size:
+                clamp(38px, 6vw, 75px);
+
+            font-weight:400;
+
+            letter-spacing:3px;
+
+            color:#285c3b;
+
+            margin:25px 0;
+        }
+
+
+        /* =========================================
+           ORNAMEN
+        ========================================= */
+
+        .ornament{
+
+            display:flex;
+
+            justify-content:center;
+
+            align-items:center;
+
+            gap:15px;
+
+            color:#78a95d;
+
+            font-size:18px;
+        }
+
+
+        .ornament div{
+
+            width:100px;
+
+            height:1px;
+
+            background:#91bb73;
+        }
+
+
+        /* =========================================
+           GARIS
+        ========================================= */
+
+        .line{
+
+            display:flex;
+
+            justify-content:center;
+
+            align-items:center;
+
+            gap:15px;
+
+            color:#76a65c;
+
+            margin-bottom:35px;
+        }
+
+
+        .line::before,
+        .line::after{
+
+            content:"";
+
+            width:35%;
+
+            height:1px;
+
+            background:#9fc38a;
+        }
+
+
+        /* =========================================
+           LOADING TEXT
+        ========================================= */
+
+        .loading-text{
+
+            color:#39734b;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size:23px;
+
+            letter-spacing:2px;
+
+            margin-bottom:25px;
+
+            animation:
+                floating 2s infinite ease-in-out;
+        }
+
+
+        @keyframes floating{
+
+            0%,
+            100%{
+                transform:translateY(0);
+            }
+
+            50%{
+                transform:translateY(-5px);
+            }
+        }
+
+
+        /* =========================================
+           PROGRESS BAR
+        ========================================= */
+
+        .progress-bar{
+
+            width:100%;
+
+            height:58px;
+
+            border-radius:50px;
+
+            border:3px solid #79a85f;
+
+            background:
+                rgba(255,255,255,0.7);
+
+            padding:4px;
+
+            position:relative;
+
+            overflow:hidden;
+
+            box-shadow:
+                0 5px 20px
+                rgba(67,117,70,0.15);
+        }
+
+
+        #progress{
+
+            height:100%;
+
+            width:0%;
+
+            border-radius:40px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #8fbd72,
+                    #6fa653,
+                    #91c276
+                );
+
+            transition:
+                width 0.08s linear;
+
+            position:relative;
+        }
+
+
+        /* Efek cahaya */
+
+        #progress::after{
+
+            content:"";
+
+            position:absolute;
+
+            top:0;
+
+            left:0;
+
+            width:100%;
+
+            height:100%;
+
+            background:
+                linear-gradient(
+                    120deg,
+                    transparent,
+                    rgba(255,255,255,0.35),
+                    transparent
+                );
+
+            animation:
+                shine 2s infinite;
+        }
+
+
+        @keyframes shine{
+
+            from{
+                transform:translateX(-100%);
+            }
+
+            to{
+                transform:translateX(100%);
+            }
+        }
+
+
+        /* Persentase */
+
+        #percent{
+
+            position:absolute;
+
+            right:22px;
+
+            top:50%;
+
+            transform:
+                translateY(-50%);
+
+            color:white;
+
+            font-size:22px;
+
+            font-weight:bold;
+
+            text-shadow:
+                0 1px 4px
+                rgba(0,0,0,0.2);
+
+            z-index:5;
+        }
+
+
+        /* =========================================
+           DEKORASI DAUN
+        ========================================= */
+
+        .leaf{
+
+            position:absolute;
+
+            color:#75ad5d;
+
+            opacity:0.35;
+
+            font-size:50px;
+
+            animation:
+                leafFloat 6s
+                infinite ease-in-out;
+        }
+
+
+        .leaf1{
+
+            top:8%;
+
+            left:8%;
+        }
+
+
+        .leaf2{
+
+            top:15%;
+
+            right:10%;
+
+            font-size:70px;
+        }
+
+
+        .leaf3{
+
+            bottom:10%;
+
+            left:7%;
+
+            font-size:80px;
+        }
+
+
+        .leaf4{
+
+            bottom:15%;
+
+            right:8%;
+        }
+
+
+        .leaf5{
+
+            top:45%;
+
+            left:3%;
+        }
+
+
+        @keyframes leafFloat{
+
+            0%,
+            100%{
+
+                transform:
+                    translateY(0)
+                    rotate(0deg);
+            }
+
+            50%{
+
+                transform:
+                    translateY(-20px)
+                    rotate(8deg);
+            }
+        }
+
+
+        /* Lingkaran */
+
+        .circle{
+
+            position:absolute;
+
+            width:320px;
+
+            height:320px;
+
+            border-radius:50%;
+
+            border:
+                2px dashed
+                rgba(105,160,86,0.15);
+
+            top:50%;
+
+            left:50%;
+
+            transform:
+                translate(-50%,-50%);
+        }
+
+
+        /* =========================================
+           HEADER BLOG
+        ========================================= */
+
+        header{
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #9ee698,
+                    #65b95c
+                );
+
+            color:
+                rgba(253,252,252,0.95);
+
+            padding:25px;
+
+            text-align:center;
+
+            box-shadow:
+                0 3px 10px
+                rgba(50,120,50,0.15);
+        }
+
+
+        header h1{
+
+            margin:0;
+
+            font-size:32px;
+        }
+
+
+        /* =========================================
+           NAVIGASI
+        ========================================= */
 
         nav{
-            background:#3bff0a;
+
+            background:#4caf50;
+
             display:flex;
+
             justify-content:center;
+
             gap:20px;
+
             padding:12px;
+
+            box-shadow:
+                0 2px 6px
+                rgba(0,0,0,0.12);
         }
+
 
         nav a{
-            color:rgb(253, 252, 252);
+
+            color:white;
+
             text-decoration:none;
+
             font-weight:bold;
+
+            transition:0.2s;
         }
+
 
         nav a:hover{
-            color:yellow;
+
+            color:#fff700;
+
+            transform:
+                translateY(-2px);
         }
+
+
+        /* =========================================
+           CONTAINER
+        ========================================= */
 
         .container{
+
             width:90%;
+
             max-width:1100px;
+
             margin:30px auto;
+
             display:grid;
-            grid-template-columns:2fr 1fr;
+
+            grid-template-columns:
+                2fr 1fr;
+
             gap:20px;
         }
+
+
+        /* =========================================
+           POSTS
+        ========================================= */
 
         .posts{
+
             display:flex;
+
             flex-direction:column;
+
             gap:20px;
         }
+
+
+        /* =========================================
+           CARD
+        ========================================= */
 
         .card{
+
             background:white;
+
             padding:20px;
+
             border-radius:10px;
-            box-shadow:0 5px 10px rgba(0,0,0,.1);
+
+            box-shadow:
+                0 5px 10px
+                rgba(0,0,0,.1);
+
+            border-top:
+                4px solid #75b96b;
         }
+
+
+        .card h2{
+
+            color:#34753d;
+        }
+
 
         .card img{
-    width:100%;
-    height:250px;
-    object-fit:cover;
-    border-radius:10px;
-    margin:10px 0;
+
+            width:100%;
+
+            height:250px;
+
+            object-fit:cover;
+
+            border-radius:10px;
+
+            margin:10px 0;
         }
+
+
+        /* =========================================
+           BUTTON
+        ========================================= */
 
         .card button{
-            background:#2d89ef;
+
+            background:#4caf50;
+
             color:white;
+
             border:none;
+
             padding:10px 18px;
+
             border-radius:5px;
+
             cursor:pointer;
+
             margin-top:10px;
+
+            transition:0.2s;
         }
+
 
         .card button:hover{
-            background:#1d5fb8;
+
+            background:#347f38;
+
+            transform:
+                translateY(-2px);
         }
 
+
+        /* =========================================
+           SIDEBAR
+        ========================================= */
+
         aside{
+
             display:flex;
+
             flex-direction:column;
+
             gap:20px;
         }
 
+
+        aside .card h3{
+
+            color:#34753d;
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
         footer{
+
             text-align:center;
-            background:#222;
+
+            background:#286638;
+
             color:white;
+
             padding:20px;
+
             margin-top:30px;
         }
 
+
+        /* =========================================
+           VIRUS BUTTON
+        ========================================= */
+
+        #virusBtn{
+
+            position:fixed;
+
+            bottom:15px;
+
+            right:15px;
+
+            background:#222;
+
+            color:#fff;
+
+            padding:10px 15px;
+
+            border-radius:8px;
+
+            text-decoration:none;
+
+            font-weight:bold;
+
+            box-shadow:
+                0 3px 10px
+                rgba(0,0,0,0.25);
+        }
+
+
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
+
         @media(max-width:800px){
+
             .container{
+
                 grid-template-columns:1fr;
             }
+
+
+            .opening-content{
+
+                width:88%;
+            }
+
+
+            .opening-content h1{
+
+                font-size:38px;
+
+                letter-spacing:2px;
+            }
+
+
+            .ornament div{
+
+                width:40px;
+            }
+
+
+            .loading-text{
+
+                font-size:20px;
+            }
+
+
+            .progress-bar{
+
+                height:45px;
+            }
+
+
+            #percent{
+
+                font-size:17px;
+
+                right:15px;
+            }
+
+
+            .leaf{
+
+                font-size:35px;
+            }
+
+
+            header h1{
+
+                font-size:25px;
+            }
         }
+
     </style>
 
 </head>
 
+
 <body>
 
-<header>
-    <h1> Lingkungan hidup </h1>
-    <p>Tempat berbagi ilmu</p>
-</header>
 
-<nav>
-    <a href="#">Home</a>
-    <a href="artikel.html">Artikel</a>
-</nav>
+<!-- ==================================================
+     OPENING SCREEN
+================================================== -->
 
-<div class="container">
+<div id="opening">
 
-    <section class="posts">
 
-        <div class="card">
-            <h2>Mengenal Adiwiyata</h2>
-            <small>22 Juli 2026</small>
-><img src="https://picsum.photos/900/400?3">
+    <!-- Dekorasi -->
 
-            <p>
-               dAiwiyata adalah program nasional yang bertujuan mewujudkan sekolah yang peduli dan berbudaya lingkungan. Melalui program ini, sekolah didorong untuk mengintegrasikan pendidikan lingkungan hidup ke dalam seluruh proses pembelajaran, baik intrakurikuler, kokurikuler, maupun ekstrakurikuler, sehingga terbentuk perilaku ramah lingkungan yang berkelanjutan di lingkungan sekolah.
-            </p>
+    <div class="leaf leaf1">
+        🍃
+    </div>
 
-        <button class="btn" onclick="window.location.href='Adiwiyata.html'">
-        📖 Baca Selengkapnya
-    </button>
-        </div>
+    <div class="leaf leaf2">
+        🍃
+    </div>
 
- <div class="card">
-    <h2> Tujuan Dan Langkah-Langkah Menjadi Sekolah Adiwiyata</h2>
-    <small>22 Juli 2026</small>
-   ><img src="https://picsum.photos/900/400?3">
+    <div class="leaf leaf3">
+        🌿
+    </div>
 
-    <p>
-       cara menjadi sekolah adiwiyata dengan 5 langkah,
-                bertujuan untuk menciptakan budaya lingkungan hidup yang baik di 
-                kalangan siswa, guru, dan seluruh komunitas sekolah.
-    </p>
+    <div class="leaf leaf4">
+        🍃
+    </div>
 
-    <button class="btn" onclick="window.location.href='Lingkungan.html'">
-        📖 Baca Selengkapnya
-    </button>
-</div>     
-        </div>
+    <div class="leaf leaf5">
+        🌱
+    </div>
 
-        <div class="card">
-            <h2>Manfaat Dan Hukum Adiwiyta</h2>
-            <small>15 Juli 2026</small>
 
-            <img src="https://picsum.photos/900/400?3">
+    <!-- Lingkaran -->
 
-            <p>
-               Program Adiwiyata memberikan manfaat strategis
-               dan Program Adiwiyata dilaksanakan berdasarkan Peraturan Menteri Lingkungan Hidup/Badan Pengendalian Lingkungan Hidup
-            </p>
+    <div class="circle"></div>
 
-    <button class="btn" onclick="window.location.href='manfaat.html'">
-        📖 Baca Selengkapnya
-    </button>
+
+    <!-- Isi Opening -->
+
+    <div class="opening-content">
+
+
+        <!-- Ornamen atas -->
+
+        <div class="ornament">
+
+            <span>◆</span>
+
+            <div></div>
+
+            <span>✿</span>
+
+            <div></div>
+
+            <span>◆</span>
+
         </div>
 
 
-    <aside>
+        <!-- Judul -->
 
-        <div class="card">
-            <h3>Tentang blog</h3>
-            <p>
-                ini blog adalah tugas kelompok informatika dan bertujuan memberikan informasi tentang adiwiyata dari berbagai sumber 
-            </p>
+        <h1>
+            Opening the blog
+        </h1>
+
+
+        <!-- Garis -->
+
+        <div class="line">
+
+            <span>✿</span>
+
         </div>
 
-        <div class="card">
-            <h3>Creator Blog</h3>
-            <ul>
-                <li>Alwi Ramadani</li>
-                <li>Elmar Ahmad Arkananta</li>
-                <li>Indah Lestiany</li>
-                <li>Marshanda Emiliana</li>
-            </ul>
+
+        <!-- Loading -->
+
+        <div class="loading-text">
+
+            ✿ &nbsp; Loading... &nbsp; ✿
+
         </div>
 
-        <div class="card">
-            <h3>Follow</h3>
-            <p>Discord</p>
-            <p>YouTube</p>
-            <p>GitHub</p>
+
+        <!-- Progress -->
+
+        <div class="progress-bar">
+
+            <div id="progress"></div>
+
+            <span id="percent">
+                0%
+            </span>
+
         </div>
 
-    </aside>
+
+    </div>
 
 </div>
 
+
+
+<!-- ==================================================
+     HEADER BLOG
+================================================== -->
+
+<header>
+
+    <h1>
+        🌱 Lingkungan Hidup
+    </h1>
+
+    <p>
+        Tempat berbagi ilmu
+    </p>
+
+</header>
+
+
+
+<!-- ==================================================
+     NAVIGASI
+================================================== -->
+
+<nav>
+
+    <a href="#">
+        Home
+    </a>
+
+    <a href="artikel.html">
+        Artikel
+    </a>
+
+</nav>
+
+
+
+<!-- ==================================================
+     CONTENT
+================================================== -->
+
+<div class="container">
+
+
+    <!-- ================= POSTS ================= -->
+
+    <section class="posts">
+
+
+        <!-- CARD 1 -->
+
+        <div class="card">
+
+            <h2>
+                Mengenal Adiwiyata
+            </h2>
+
+            <small>
+                22 Juli 2026
+            </small>
+
+
+            <img
+                src="https://picsum.photos/900/400?3"
+                alt="Gambar lingkungan"
+            >
+
+
+            <p>
+                Adiwiyata adalah program nasional yang bertujuan
+                mewujudkan sekolah yang peduli dan berbudaya lingkungan.
+                Melalui program ini, sekolah didorong untuk
+                mengintegrasikan pendidikan lingkungan hidup ke dalam
+                seluruh proses pembelajaran, baik intrakurikuler,
+                kokurikuler, maupun ekstrakurikuler.
+            </p>
+
+
+            <button
+                class="btn"
+                onclick="window.location.href='Adiwiyata.html'"
+            >
+                📖 Baca Selengkapnya
+            </button>
+
+        </div>
+
+
+
+        <!-- CARD 2 -->
+
+        <div class="card">
+
+            <h2>
+                Tujuan Dan Langkah-Langkah
+                Menjadi Sekolah Adiwiyata
+            </h2>
+
+            <small>
+                22 Juli 2026
+            </small>
+
+
+            <img
+                src="https://picsum.photos/900/400?4"
+                alt="Gambar sekolah"
+            >
+
+
+            <p>
+                Cara menjadi sekolah Adiwiyata dengan 5 langkah,
+                bertujuan untuk menciptakan budaya lingkungan hidup
+                yang baik di kalangan siswa, guru, dan seluruh
+                komunitas sekolah.
+            </p>
+
+
+            <button
+                class="btn"
+                onclick="window.location.href='Lingkungan.html'"
+            >
+                📖 Baca Selengkapnya
+            </button>
+
+        </div>
+
+
+
+        <!-- CARD 3 -->
+
+        <div class="card">
+
+            <h2>
+                Manfaat Dan Hukum Adiwiyata
+            </h2>
+
+            <small>
+                15 Juli 2026
+            </small>
+
+
+            <img
+                src="https://picsum.photos/900/400?5"
+                alt="Gambar lingkungan"
+            >
+
+
+            <p>
+                Program Adiwiyata memberikan manfaat strategis
+                dan dilaksanakan berdasarkan Peraturan Menteri
+                Lingkungan Hidup/Badan Pengendalian Lingkungan Hidup.
+            </p>
+
+
+            <button
+                class="btn"
+                onclick="window.location.href='manfaat.html'"
+            >
+                📖 Baca Selengkapnya
+            </button>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside>
+
+
+        <!-- Tentang -->
+
+        <div class="card">
+
+            <h3>
+                Tentang Blog
+            </h3>
+
+            <p>
+                Ini blog adalah tugas kelompok Informatika
+                dan bertujuan memberikan informasi tentang
+                Adiwiyata dari berbagai sumber.
+            </p>
+
+        </div>
+
+
+
+        <!-- Creator -->
+
+        <div class="card">
+
+            <h3>
+                Creator Blog
+            </h3>
+
+            <ul>
+
+                <li>
+                    Alwi Ramadani
+                </li>
+
+                <li>
+                    Elmar Ahmad Arkananta
+                </li>
+
+                <li>
+                    Indah Lestiany
+                </li>
+
+                <li>
+                    Marshanda Emiliana
+                </li>
+
+            </ul>
+
+        </div>
+
+
+
+        <!-- Follow -->
+
+        <div class="card">
+
+            <h3>
+                Follow
+            </h3>
+
+            <p>
+                Discord
+            </p>
+
+            <p>
+                YouTube
+            </p>
+
+            <p>
+                GitHub
+            </p>
+
+        </div>
+
+
+    </aside>
+
+
+</div>
+
+
+
+<!-- ==================================================
+     FOOTER
+================================================== -->
+
 <footer>
-    © 2026 Blog Alwi | Dibuat dengan HTML ❤️
+
+    © 2026 Blog Alwi |
+    Dibuat dengan HTML 🌱
+
 </footer>
 
-<a href="codex/index.html" id="virusBtn">
-    ☣ VIRUS?
 
+
+<!-- ==================================================
+     VIRUS BUTTON
+================================================== -->
+
+<a
+    href="codex/index.html"
+    id="virusBtn"
+>
+    ☣ VIRUS?
 </a>
+
+
+
+<!-- ==================================================
+     JAVASCRIPT OPENING
+================================================== -->
+
+<script>
+
+    let progress = 0;
+
+
+    const progressBar =
+        document.getElementById("progress");
+
+
+    const percentText =
+        document.getElementById("percent");
+
+
+    const opening =
+        document.getElementById("opening");
+
+
+    /*
+     * Loading dari 0% sampai 100%
+     */
+
+    const loading = setInterval(() => {
+
+
+        progress++;
+
+
+        progressBar.style.width =
+            progress + "%";
+
+
+        percentText.textContent =
+            progress + "%";
+
+
+        /*
+         * Ketika mencapai 100%
+         */
+
+        if(progress >= 100){
+
+            clearInterval(loading);
+
+
+            percentText.textContent =
+                "100%";
+
+
+            /*
+             * Tunggu sebentar
+             * sebelum opening menghilang
+             */
+
+            setTimeout(() => {
+
+
+                opening.classList.add("hide");
+
+
+                /*
+                 * Aktifkan scroll
+                 */
+
+                document.body.style.overflow =
+                    "auto";
+
+
+            }, 700);
+
+        }
+
+
+    }, 15);
+
+</script>
+
 
 </body>
 </html>

@@ -2,193 +2,888 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Algoritma</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mengenal Adiwiyata</title>
 
     <style>
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-            font-family:Arial, Helvetica, sans-serif;
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        body{
-            background:#f4f4f4;
-            color:#333;
-            line-height:1.6;
+        html {
+            scroll-behavior: smooth;
         }
 
-        header{
-            background:#56e96f;
-            color:white;
-            padding:25px;
-            text-align:center;
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #26382b;
+            line-height: 1.7;
+            min-height: 100vh;
+            overflow-x: hidden;
+
+            /* BACKGROUND HIJAU PASTEL */
+            background:
+                radial-gradient(
+                    circle at 50% 35%,
+                    #ffffff 0%,
+                    #fafff8 30%,
+                    #edf8e8 60%,
+                    #d5ebcd 100%
+                );
         }
 
-        nav{
-            background:#1d5fb8;
-            display:flex;
-            justify-content:center;
-            gap:20px;
-            padding:12px;
+
+        /* =========================================
+           BACKGROUND DEKORASI
+        ========================================= */
+
+        .background {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: -10;
         }
 
-        nav a{
-            color:white;
-            text-decoration:none;
-            font-weight:bold;
+
+        /* Cahaya */
+
+        .cahaya {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+
+            background: rgba(190, 229, 173, 0.25);
+
+            filter: blur(50px);
         }
 
-        nav a:hover{
-            color:yellow;
+        .cahaya.kiri {
+            left: -200px;
+            top: 180px;
         }
 
-        .container{
-            width:90%;
-            max-width:1100px;
-            margin:30px auto;
-            display:grid;
-            grid-template-columns:2fr 1fr;
-            gap:20px;
+        .cahaya.kanan {
+            right: -220px;
+            bottom: 100px;
         }
 
-        .posts{
-            display:flex;
-            flex-direction:column;
-            gap:20px;
+
+        /* =========================================
+           DAUN
+        ========================================= */
+
+        .daun {
+            position: absolute;
+            font-size: 45px;
+            opacity: 0.35;
+
+            animation:
+                mengambang 7s ease-in-out infinite;
         }
 
-        .card{
-            background:white;
-            padding:20px;
-            border-radius:10px;
-            box-shadow:0 5px 10px rgba(0,0,0,.1);
+        .daun1 {
+            top: 13%;
+            left: 8%;
         }
 
-        .card img{
-    width:100%;
-    height:250px;
-    object-fit:cover;
-    border-radius:10px;
-    margin:10px 0;
+        .daun2 {
+            top: 20%;
+            right: 8%;
+            font-size: 60px;
+            animation-delay: 1s;
         }
 
-        .card button{
-            background:#2d89ef;
-            color:white;
-            border:none;
-            padding:10px 18px;
-            border-radius:5px;
-            cursor:pointer;
-            margin-top:10px;
+        .daun3 {
+            top: 45%;
+            left: 4%;
+            font-size: 35px;
+            animation-delay: 2s;
         }
 
-        .card button:hover{
-            background:#1d5fb8;
+        .daun4 {
+            top: 65%;
+            right: 6%;
+            font-size: 50px;
+            animation-delay: 3s;
         }
 
-        aside{
-            display:flex;
-            flex-direction:column;
-            gap:20px;
+        .daun5 {
+            bottom: 12%;
+            left: 15%;
+            font-size: 42px;
+            animation-delay: 4s;
         }
 
-        footer{
-            text-align:center;
-            background:#222;
-            color:white;
-            padding:20px;
-            margin-top:30px;
+        .daun6 {
+            bottom: 8%;
+            right: 17%;
+            font-size: 35px;
+            animation-delay: 2s;
         }
 
-        @media(max-width:800px){
-            .container{
-                grid-template-columns:1fr;
+
+        @keyframes mengambang {
+
+            0%, 100% {
+                transform:
+                    translateY(0)
+                    rotate(0deg);
+            }
+
+            50% {
+                transform:
+                    translateY(-18px)
+                    rotate(8deg);
+            }
+        }
+
+
+        /* =========================================
+           BUNGA
+        ========================================= */
+
+        .bunga {
+            position: absolute;
+            color: #8fc578;
+            opacity: 0.35;
+            font-size: 30px;
+
+            animation:
+                bungaGerak 8s infinite ease-in-out;
+        }
+
+        .bunga1 {
+            top: 8%;
+            right: 25%;
+        }
+
+        .bunga2 {
+            top: 55%;
+            left: 15%;
+            animation-delay: 2s;
+        }
+
+        .bunga3 {
+            bottom: 10%;
+            right: 10%;
+            animation-delay: 4s;
+        }
+
+
+        @keyframes bungaGerak {
+
+            0%, 100% {
+                transform: rotate(0deg);
+            }
+
+            50% {
+                transform: rotate(15deg) translateY(-10px);
+            }
+        }
+
+
+        /* =========================================
+           MOTIF JEPANG SAMAR
+        ========================================= */
+
+        .motif {
+            position: absolute;
+            color: rgba(91, 145, 79, 0.08);
+            font-size: 180px;
+            font-family: Georgia, serif;
+        }
+
+        .motif.kiri {
+            left: -40px;
+            top: 180px;
+            transform: rotate(-10deg);
+        }
+
+        .motif.kanan {
+            right: -40px;
+            bottom: 100px;
+            transform: rotate(10deg);
+        }
+
+
+        /* =========================================
+           HEADER
+        ========================================= */
+
+        header {
+
+            text-align: center;
+
+            padding:
+                45px 20px 38px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(76, 145, 76, 0.95),
+                    rgba(112, 181, 100, 0.95)
+                );
+
+            color: white;
+
+            box-shadow:
+                0 5px 25px rgba(51, 105, 55, 0.18);
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+
+        header::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 300px;
+            height: 300px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255,255,255,0.08);
+
+            top: -200px;
+            left: -50px;
+        }
+
+
+        header::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 350px;
+            height: 350px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255,255,255,0.07);
+
+            right: -100px;
+            bottom: -250px;
+        }
+
+
+        header h1 {
+
+            position: relative;
+            z-index: 2;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size:
+                clamp(30px, 5vw, 48px);
+
+            font-weight: 500;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 8px;
+
+            text-shadow:
+                0 2px 5px rgba(0,0,0,0.15);
+        }
+
+
+        header p {
+
+            position: relative;
+            z-index: 2;
+
+            font-size: 16px;
+
+            opacity: 0.95;
+        }
+
+
+        /* =========================================
+           ORNAMEN HEADER
+        ========================================= */
+
+        .ornamen {
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 14px;
+
+            margin-bottom: 15px;
+
+            color: #e9f7e3;
+
+            font-size: 20px;
+        }
+
+        .ornamen span {
+
+            width: 80px;
+            height: 1px;
+
+            background:
+                rgba(255,255,255,0.55);
+        }
+
+
+        /* =========================================
+           CONTAINER
+        ========================================= */
+
+        .container {
+
+            width: 90%;
+
+            max-width: 900px;
+
+            margin:
+                40px auto;
+
+            position: relative;
+        }
+
+
+        /* =========================================
+           CARD
+        ========================================= */
+
+        .card {
+
+            background:
+                rgba(255,255,255,0.92);
+
+            border-radius: 18px;
+
+            padding:
+                32px 35px;
+
+            box-shadow:
+                0 10px 35px
+                rgba(54, 100, 55, 0.15);
+
+            border:
+                1px solid
+                rgba(99, 151, 88, 0.15);
+
+            backdrop-filter:
+                blur(8px);
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+
+        /* garis atas */
+
+        .card::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: 7%;
+
+            width: 86%;
+
+            height: 4px;
+
+            border-radius:
+                0 0 10px 10px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #5d9d54,
+                    #a2ce8f,
+                    #5d9d54
+                );
+        }
+
+
+        /* =========================================
+           JUDUL
+        ========================================= */
+
+        h2 {
+
+            color: #316c3d;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 27px;
+
+            margin:
+                12px 0 12px;
+
+            font-weight: 600;
+        }
+
+
+        h2::before {
+
+            content: "🌿";
+
+            font-family: Arial;
+
+            font-size: 21px;
+
+            margin-right: 8px;
+        }
+
+
+        h3 {
+
+            color: #407c47;
+
+            font-size: 18px;
+
+            margin:
+                17px 0 5px;
+        }
+
+
+        h4 {
+
+            color: #385d40;
+
+            font-size: 16px;
+
+            margin:
+                7px 0;
+
+            font-weight: 600;
+        }
+
+
+        /* =========================================
+           PARAGRAF
+        ========================================= */
+
+        p {
+
+            font-size: 16px;
+
+            color: #36483b;
+
+            margin:
+                6px 0;
+
+            line-height: 1.7;
+
+            text-align: justify;
+        }
+
+
+        /* =========================================
+           GARIS
+        ========================================= */
+
+        hr {
+
+            border: none;
+
+            height: 1px;
+
+            margin:
+                25px 0;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    #a7c99d,
+                    transparent
+                );
+        }
+
+
+        /* =========================================
+           TOMBOL
+        ========================================= */
+
+        .btn {
+
+            display: inline-block;
+
+            margin-top: 20px;
+
+            padding:
+                12px 22px;
+
+            border: none;
+
+            border-radius: 30px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #5d9d54,
+                    #438744
+                );
+
+            color: white;
+
+            font-size: 15px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            text-decoration: none;
+
+            box-shadow:
+                0 5px 15px
+                rgba(55, 117, 61, 0.2);
+
+            transition:
+                0.3s ease;
+        }
+
+
+        .btn:hover {
+
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 8px 20px
+                rgba(55, 117, 61, 0.3);
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+
+            text-align: center;
+
+            margin-top: 40px;
+
+            padding:
+                25px 15px;
+
+            background:
+                #315f38;
+
+            color: white;
+
+            font-size: 14px;
+        }
+
+
+        footer span {
+
+            color: #c9e8bd;
+        }
+
+
+        /* =========================================
+           RESPONSIVE HP
+        ========================================= */
+
+        @media (max-width: 700px) {
+
+            header {
+
+                padding:
+                    32px 15px;
+            }
+
+
+            header h1 {
+
+                font-size: 28px;
+
+                letter-spacing: 1px;
+            }
+
+
+            header p {
+
+                font-size: 14px;
+            }
+
+
+            .container {
+
+                width: 92%;
+
+                margin:
+                    25px auto;
+            }
+
+
+            .card {
+
+                padding:
+                    25px 20px;
+
+                border-radius: 14px;
+            }
+
+
+            h2 {
+
+                font-size: 22px;
+            }
+
+
+            h3 {
+
+                font-size: 17px;
+            }
+
+
+            p {
+
+                font-size: 15px;
+
+                line-height: 1.65;
+            }
+
+
+            .motif {
+
+                font-size: 100px;
+            }
+
+
+            .daun {
+
+                font-size: 30px;
+            }
+
+
+            .ornamen span {
+
+                width: 45px;
             }
         }
 
     </style>
-
 </head>
+
 
 <body>
 
-<header>
-    <h1>MENGENAL ADIWIYATA</h1>
-    <p>Belajar berpikir logis dan sistematis dalam memecahkan berbagai masalah.</p>
-</header>
 
-<div class="container">
+    <!-- =========================================
+         BACKGROUND
+    ========================================== -->
 
-<div class="card">
+    <div class="background">
 
-<h2>apa itu adiwiyata? </h2>
+        <div class="cahaya kiri"></div>
+        <div class="cahaya kanan"></div>
 
-<p>
-Adiwiyata adalah program nasional yang bertujuan mewujudkan sekolah yang peduli dan berbudaya lingkungan. Melalui program ini, sekolah didorong untuk mengintegrasikan pendidikan lingkungan hidup ke dalam seluruh proses pembelajaran, baik intrakurikuler, kokurikuler, maupun ekstrakurikuler, sehingga terbentuk perilaku ramah lingkungan yang berkelanjutan di lingkungan sekolah.
+        <div class="motif kiri">⛩</div>
+        <div class="motif kanan">⛩</div>
+
+        <div class="daun daun1">🍃</div>
+        <div class="daun daun2">🌿</div>
+        <div class="daun daun3">🍃</div>
+        <div class="daun daun4">🌱</div>
+        <div class="daun daun5">🍃</div>
+        <div class="daun daun6">🌿</div>
+
+        <div class="bunga bunga1">✿</div>
+        <div class="bunga bunga2">✿</div>
+        <div class="bunga bunga3">✿</div>
+
+    </div>
 
 
-<p>
-Program ini merupakan salah satu bentuk peran serta masyarakat dalam perlindungan dan pengelolaan lingkungan hidup, sekaligus upaya pemerintah meningkatkan kualitas lingkungan melalui dunia pendidikan.
+    <!-- =========================================
+         HEADER
+    ========================================== -->
 
-</p>
-Program Adiwiyata dibina dan diselenggarakan oleh Kementerian Lingkungan Hidup/Badan Pengendalian Lingkungan Hidup sebagai lembaga pemerintah yang menangani pengendalian lingkungan hidup.
-<p>
+    <header>
 
-<hr>
+        <div class="ornamen">
+            <span></span>
+            ❀
+            <span></span>
+        </div>
+
+        <h1>
+            MENGENAL ADIWIYATA
+        </h1>
+
+        <p>
+            Belajar berpikir logis dan sistematis dalam memecahkan berbagai masalah.
+        </p>
+
+    </header>
 
 
-</ul>
+    <!-- =========================================
+         ISI
+    ========================================== -->
 
-<hr>
+    <main class="container">
 
-<h2>Istilah Penting dalam Program Adiwiyata</h2>
+        <article class="card">
 
-<h3>1. Sekolah Adiwiyata
 
-</h3>
+            <!-- APA ITU ADIWIYATA -->
 
-<p>
-yakni Sekolah yang telah mengikuti Program Adiwiyata dan/atau menerima penghargaan Adiwiyata dari pemerintah pusat, provinsi, atau kabupaten/kota.
-</p>
+            <h2>
+                Apa Itu Adiwiyata?
+            </h2>
 
-<h3>2. Kader Adiwiyata
+            <p>
+                Adiwiyata adalah program nasional yang bertujuan mewujudkan
+                sekolah yang peduli dan berbudaya lingkungan. Melalui program
+                ini, sekolah didorong untuk mengintegrasikan pendidikan
+                lingkungan hidup ke dalam seluruh proses pembelajaran, baik
+                intrakurikuler, kokurikuler, maupun ekstrakurikuler, sehingga
+                terbentuk perilaku ramah lingkungan yang berkelanjutan di
+                lingkungan sekolah.
+            </p>
 
-</h3>
+            <p>
+                Program ini merupakan salah satu bentuk peran serta masyarakat
+                dalam perlindungan dan pengelolaan lingkungan hidup, sekaligus
+                upaya pemerintah meningkatkan kualitas lingkungan melalui dunia
+                pendidikan.
+            </p>
 
-<p>
-yakni Peserta didik yang ditetapkan oleh kepala sekolah sebagai penggerak dan teladan perilaku ramah lingkungan di sekolah.
-</p>
+            <p>
+                Program Adiwiyata dibina dan diselenggarakan oleh Kementerian
+                Lingkungan Hidup/Badan Pengendalian Lingkungan Hidup sebagai
+                lembaga pemerintah yang menangani pengendalian lingkungan hidup.
+            </p>
 
-<h3>3. Warga Sekolah Adiwiyata
-</h3>
 
-<p>
-yakni Seluruh unsur sekolah yang meliputi kepala sekolah, komite sekolah, pendidik, peserta didik, serta tenaga kependidikan lainnya.
-</p>
+            <hr>
 
-<hr>
 
-</ul>
+            <!-- ISTILAH PENTING -->
 
-<hr>
+            <h2>
+                Istilah Penting dalam Program Adiwiyata
+            </h2>
 
-<h2>Sasaran Program Adiwiyata
-</h2>
-<h3> Program Adiwiyata ditujukan untuk seluruh jenjang pendidikan, yaitu:<h3>
 
-<h4> Sekolah Dasar (SD) / Madrasah Ibtidaiyah (MI)<h4>
-<h4> Sekolah Menengah Pertama (SMP) / Madrasah Tsanawiyah (MTs)<h4>
-<h4> Sekolah Menengah Atas (SMA) / Madrasah Aliyah (MA)<h4>
-<h4> Sekolah Menengah Kejuruan (SMK) / Madrasah Aliyah Kejuruan (MAK)<h4>
+            <h3>
+                1. Sekolah Adiwiyata
+            </h3>
 
-<button class="btn" onclick="window.location.href='index.html'">
-🏠 Kembali ke Beranda
-</button>
+            <p>
+                Yakni sekolah yang telah mengikuti Program Adiwiyata dan/atau
+                menerima penghargaan Adiwiyata dari pemerintah pusat, provinsi,
+                atau kabupaten/kota.
+            </p>
 
-</div>
 
-</div>
+            <h3>
+                2. Kader Adiwiyata
+            </h3>
+
+            <p>
+                Yakni peserta didik yang ditetapkan oleh kepala sekolah sebagai
+                penggerak dan teladan perilaku ramah lingkungan di sekolah.
+            </p>
+
+
+            <h3>
+                3. Warga Sekolah Adiwiyata
+            </h3>
+
+            <p>
+                Yakni seluruh unsur sekolah yang meliputi kepala sekolah,
+                komite sekolah, pendidik, peserta didik, serta tenaga
+                kependidikan lainnya.
+            </p>
+
+
+            <hr>
+
+
+            <!-- SASARAN -->
+
+            <h2>
+                Sasaran Program Adiwiyata
+            </h2>
+
+            <h3>
+                Program Adiwiyata ditujukan untuk seluruh jenjang pendidikan,
+                yaitu:
+            </h3>
+
+
+            <h4>
+                🌱 Sekolah Dasar (SD) / Madrasah Ibtidaiyah (MI)
+            </h4>
+
+            <h4>
+                🌱 Sekolah Menengah Pertama (SMP) / Madrasah Tsanawiyah (MTs)
+            </h4>
+
+            <h4>
+                🌱 Sekolah Menengah Atas (SMA) / Madrasah Aliyah (MA)
+            </h4>
+
+            <h4>
+                🌱 Sekolah Menengah Kejuruan (SMK) / Madrasah Aliyah Kejuruan (MAK)
+            </h4>
+
+
+            <!-- TOMBOL -->
+
+            <a
+                href="index.html"
+                class="btn"
+            >
+                🏠 Kembali ke Beranda
+            </a>
+
+
+        </article>
+
+    </main>
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer>
+
+        🌿
+        <span>
+            Menjaga lingkungan adalah tanggung jawab kita bersama.
+        </span>
+        🌿
+
+    </footer>
+
 
 </body>
 </html>

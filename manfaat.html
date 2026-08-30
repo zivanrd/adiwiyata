@@ -2,179 +2,834 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Algoritma</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Manfaat Adiwiyata</title>
 
     <style>
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-            font-family:Arial, Helvetica, sans-serif;
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        body{
-            background:#f4f4f4;
-            color:#333;
-            line-height:1.6;
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #405044;
+            line-height: 1.6;
+
+            min-height: 100vh;
+
+            /* BACKGROUND SEPERTI SCREENSHOT */
+            background:
+                radial-gradient(
+                    circle at 10% 30%,
+                    rgba(255,255,255,0.9),
+                    transparent 25%
+                ),
+                radial-gradient(
+                    circle at 90% 45%,
+                    rgba(205,240,195,0.75),
+                    transparent 30%
+                ),
+                linear-gradient(
+                    135deg,
+                    #edf9e9,
+                    #f8fff5,
+                    #e5f6df
+                );
+
+            position: relative;
+            overflow-x: hidden;
         }
 
-        header{
-            background:#56e96f;
-            color:white;
-            padding:25px;
-            text-align:center;
+
+        /* =========================
+           HIASAN BACKGROUND
+        ========================= */
+
+        body::before {
+            content: "🍃";
+            position: fixed;
+
+            left: 45px;
+            top: 330px;
+
+            font-size: 42px;
+
+            opacity: 0.35;
+
+            transform: rotate(-20deg);
+
+            z-index: 0;
         }
 
-        nav{
-            background:#1d5fb8;
-            display:flex;
-            justify-content:center;
-            gap:20px;
-            padding:12px;
+        body::after {
+            content: "🌱";
+            position: fixed;
+
+            right: 70px;
+            bottom: 160px;
+
+            font-size: 48px;
+
+            opacity: 0.45;
+
+            z-index: 0;
         }
 
-        nav a{
-            color:white;
-            text-decoration:none;
-            font-weight:bold;
+
+        /* =========================
+           HIASAN BUNGA
+        ========================= */
+
+        .hiasan {
+            position: fixed;
+
+            font-size: 25px;
+
+            opacity: 0.35;
+
+            pointer-events: none;
+
+            z-index: 0;
         }
 
-        nav a:hover{
-            color:yellow;
+        .bunga1 {
+            left: 15%;
+            top: 48%;
         }
 
-        .container{
-            width:90%;
-            max-width:1100px;
-            margin:30px auto;
-            display:grid;
-            grid-template-columns:2fr 1fr;
-            gap:20px;
+        .bunga2 {
+            right: 13%;
+            top: 65%;
         }
 
-        .posts{
-            display:flex;
-            flex-direction:column;
-            gap:20px;
+        .bunga3 {
+            left: 8%;
+            bottom: 20%;
         }
 
-        .card{
-            background:white;
-            padding:20px;
-            border-radius:10px;
-            box-shadow:0 5px 10px rgba(0,0,0,.1);
+        .daun1 {
+            right: 18%;
+            top: 31%;
+            transform: rotate(25deg);
         }
 
-        .card img{
-    width:100%;
-    height:250px;
-    object-fit:cover;
-    border-radius:10px;
-    margin:10px 0;
+        .daun2 {
+            left: 16%;
+            bottom: 30%;
+            transform: rotate(-25deg);
         }
 
-        .card button{
-            background:#2d89ef;
-            color:white;
-            border:none;
-            padding:10px 18px;
-            border-radius:5px;
-            cursor:pointer;
-            margin-top:10px;
+
+        /* =========================
+           SILUET SISI
+        ========================= */
+
+        .siluet-kiri {
+            position: fixed;
+
+            left: -35px;
+            top: 190px;
+
+            width: 130px;
+            height: 190px;
+
+            opacity: 0.10;
+
+            z-index: 0;
+
+            transform: rotate(-10deg);
         }
 
-        .card button:hover{
-            background:#1d5fb8;
+        .siluet-kiri::before {
+            content: "";
+
+            position: absolute;
+
+            width: 18px;
+            height: 150px;
+
+            left: 35px;
+            top: 25px;
+
+            background: #55965a;
+
+            transform: rotate(-8deg);
         }
 
-        aside{
-            display:flex;
-            flex-direction:column;
-            gap:20px;
+        .siluet-kiri::after {
+            content: "";
+
+            position: absolute;
+
+            width: 110px;
+            height: 20px;
+
+            left: 5px;
+            top: 25px;
+
+            background: #55965a;
+
+            border-radius: 50%;
         }
 
-        footer{
-            text-align:center;
-            background:#222;
-            color:white;
-            padding:20px;
-            margin-top:30px;
+
+        .siluet-kanan {
+            position: fixed;
+
+            right: -35px;
+            bottom: 120px;
+
+            width: 140px;
+            height: 180px;
+
+            opacity: 0.10;
+
+            z-index: 0;
         }
 
-        @media(max-width:800px){
-            .container{
-                grid-template-columns:1fr;
+        .siluet-kanan::before {
+            content: "";
+
+            position: absolute;
+
+            width: 18px;
+            height: 150px;
+
+            right: 35px;
+            top: 20px;
+
+            background: #55965a;
+
+            transform: rotate(8deg);
+        }
+
+        .siluet-kanan::after {
+            content: "";
+
+            position: absolute;
+
+            width: 120px;
+            height: 20px;
+
+            right: 0;
+            top: 25px;
+
+            background: #55965a;
+
+            border-radius: 50%;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        .header {
+            position: relative;
+
+            z-index: 2;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 35px 20px 30px;
+
+            background:
+                radial-gradient(
+                    circle at 5% 0%,
+                    rgba(255,255,255,0.13),
+                    transparent 18%
+                ),
+                radial-gradient(
+                    circle at 95% 100%,
+                    rgba(255,255,255,0.14),
+                    transparent 20%
+                ),
+                linear-gradient(
+                    135deg,
+                    #579c59,
+                    #76bd6c
+                );
+
+            box-shadow:
+                0 5px 18px rgba(45,100,50,0.18);
+
+            overflow: hidden;
+        }
+
+
+        /* BULATAN HEADER */
+
+        .header::before {
+            content: "";
+
+            position: absolute;
+
+            width: 150px;
+            height: 150px;
+
+            left: -55px;
+            top: -75px;
+
+            background: rgba(255,255,255,0.10);
+
+            border-radius: 50%;
+        }
+
+        .header::after {
+            content: "";
+
+            position: absolute;
+
+            width: 150px;
+            height: 150px;
+
+            right: -60px;
+            bottom: -80px;
+
+            background: rgba(255,255,255,0.10);
+
+            border-radius: 50%;
+        }
+
+
+        /* ORNAMEN ATAS */
+
+        .ornamen {
+            position: relative;
+
+            margin-bottom: 13px;
+
+            color: #eaffdf;
+
+            font-size: 18px;
+
+            letter-spacing: 10px;
+        }
+
+        .ornamen::before,
+        .ornamen::after {
+            content: "";
+
+            display: inline-block;
+
+            width: 65px;
+
+            height: 1px;
+
+            background: rgba(255,255,255,0.7);
+
+            vertical-align: middle;
+
+            margin: 0 12px;
+        }
+
+
+        .header h1 {
+            position: relative;
+
+            font-family: Georgia, "Times New Roman", serif;
+
+            font-size: 32px;
+
+            font-weight: bold;
+
+            letter-spacing: 1px;
+
+            text-shadow:
+                0 2px 4px rgba(0,0,0,0.15);
+
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            position: relative;
+
+            font-size: 14px;
+
+            color: #f4fff1;
+        }
+
+
+        /* =========================
+           HIASAN HALAMAN
+        ========================= */
+
+        .dekorasi {
+            position: fixed;
+
+            pointer-events: none;
+
+            z-index: 0;
+        }
+
+        .dekorasi.daun-kanan {
+            right: 30px;
+            top: 280px;
+
+            font-size: 38px;
+
+            opacity: 0.25;
+
+            transform: rotate(20deg);
+        }
+
+        .dekorasi.daun-kiri {
+            left: 70px;
+            bottom: 100px;
+
+            font-size: 45px;
+
+            opacity: 0.22;
+
+            transform: rotate(-25deg);
+        }
+
+
+        /* =========================
+           CONTAINER
+        ========================= */
+
+        .container {
+            position: relative;
+
+            z-index: 1;
+
+            width: 700px;
+
+            max-width: 92%;
+
+            margin: 32px auto;
+        }
+
+
+        /* =========================
+           KARTU ARTIKEL
+        ========================= */
+
+        .artikel {
+            position: relative;
+
+            background: rgba(255,255,255,0.95);
+
+            padding: 30px 27px;
+
+            border-radius: 15px;
+
+            box-shadow:
+                0 8px 25px rgba(53,100,60,0.15);
+
+            border: 1px solid rgba(100,160,100,0.15);
+
+            overflow: hidden;
+        }
+
+
+        /* GARIS HIJAU DI ATAS */
+
+        .artikel::before {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: 48px;
+            right: 48px;
+
+            height: 4px;
+
+            background: #55a958;
+
+            border-radius: 0 0 10px 10px;
+        }
+
+
+        /* =========================
+           JUDUL BAGIAN
+        ========================= */
+
+        .artikel h2 {
+            font-family: Georgia, "Times New Roman", serif;
+
+            color: #32703d;
+
+            font-size: 24px;
+
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+
+
+        /* HIASAN DAUN DI JUDUL */
+
+        .artikel h2::before {
+            content: "🍃";
+
+            font-family: Arial;
+
+            font-size: 17px;
+
+            margin-right: 10px;
+
+            opacity: 0.9;
+        }
+
+
+        .artikel h3 {
+            color: #376f40;
+
+            font-size: 17px;
+
+            margin-top: 13px;
+
+            margin-bottom: 5px;
+        }
+
+
+        /* =========================
+           PARAGRAF
+        ========================= */
+
+        .artikel p {
+            font-size: 15px;
+
+            line-height: 1.7;
+
+            margin: 5px 0 10px;
+
+            text-align: justify;
+        }
+
+
+        /* =========================
+           LIST
+        ========================= */
+
+        .manfaat {
+            padding-left: 24px;
+
+            margin-top: 5px;
+
+            margin-bottom: 10px;
+        }
+
+        .manfaat li {
+            font-size: 15px;
+
+            margin-bottom: 5px;
+
+            color: #405044;
+        }
+
+        .manfaat li::marker {
+            color: #4e9955;
+
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           GARIS PEMISAH
+        ========================= */
+
+        .garis {
+            border: none;
+
+            height: 1px;
+
+            background:
+                linear-gradient(
+                    to right,
+                    transparent,
+                    #9bc49a,
+                    transparent
+                );
+
+            margin: 20px 0;
+        }
+
+
+        /* =========================
+           LINK PERATURAN
+        ========================= */
+
+        .btn-peraturan {
+            display: inline-block;
+
+            background: #4c9b55;
+
+            color: white;
+
+            text-decoration: none;
+
+            padding: 10px 17px;
+
+            border-radius: 6px;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+            margin-top: 3px;
+
+            box-shadow:
+                0 3px 8px rgba(55,120,60,0.20);
+
+            transition: 0.2s;
+        }
+
+        .btn-peraturan:hover {
+            background: #397e42;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================
+           TOMBOL KEMBALI
+        ========================= */
+
+        .btn-kembali {
+            display: inline-block;
+
+            background: #2d89ef;
+
+            color: white;
+
+            text-decoration: none;
+
+            padding: 10px 17px;
+
+            border-radius: 6px;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+            margin-top: 12px;
+
+            box-shadow:
+                0 3px 8px rgba(30,100,180,0.20);
+
+            transition: 0.2s;
+        }
+
+        .btn-kembali:hover {
+            background: #1d5fb8;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================
+           RESPONSIVE HP
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            .header {
+                padding: 28px 15px;
             }
+
+            .header h1 {
+                font-size: 23px;
+            }
+
+            .header p {
+                font-size: 13px;
+            }
+
+            .ornamen::before,
+            .ornamen::after {
+                width: 35px;
+                margin: 0 7px;
+            }
+
+            .container {
+                width: 94%;
+
+                margin: 22px auto;
+            }
+
+            .artikel {
+                padding: 25px 18px;
+            }
+
+            .artikel h2 {
+                font-size: 21px;
+            }
+
+            .artikel h3 {
+                font-size: 16px;
+            }
+
+            .artikel p,
+            .manfaat li {
+                font-size: 14px;
+            }
+
+            .siluet-kiri,
+            .siluet-kanan {
+                opacity: 0.06;
+            }
+
         }
 
     </style>
 
 </head>
 
+
 <body>
 
-<header>
-    <h1>MAANFAAT DARI ADIWIYATA DAN INFORMASI HUKUMNYA</h1>
-    <p>Belajar berpikir logis dan sistematis dalam memecahkan berbagai masalah.</p>
+
+<!-- =========================
+     HIASAN BACKGROUND
+========================= -->
+
+<div class="hiasan bunga1">✿</div>
+<div class="hiasan bunga2">✿</div>
+<div class="hiasan bunga3">❀</div>
+
+<div class="hiasan daun1">🍃</div>
+<div class="hiasan daun2">🍃</div>
+
+<div class="dekorasi daun-kanan">🍃</div>
+<div class="dekorasi daun-kiri">🍃</div>
+
+<div class="siluet-kiri"></div>
+<div class="siluet-kanan"></div>
+
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header class="header">
+
+    <div class="ornamen">
+        ✿
+    </div>
+
+    <h1>
+        MANFAAT DARI ADIWIYATA DAN INFORMASI HUKUMNYA
+    </h1>
+
+    <p>
+        Belajar berpikir logis dan sistematis dalam memecahkan berbagai masalah.
+    </p>
+
 </header>
+
+
+
+<!-- =========================
+     ARTIKEL
+========================= -->
 
 <div class="container">
 
-<div class="card">
+    <div class="artikel">
 
-<h2>Manfaat Program Adiwiyata bagi Sekolah
 
-</h2>
+        <!-- MANFAAT -->
 
-<h3> Program Adiwiyata memberikan manfaat strategis, antara lain:</h3>
+        <h2>
+            Manfaat Program Adiwiyata bagi Sekolah
+        </h2>
 
-<p>1. Meningkatkan kualitas dan kenyamanan lingkungan sekolah
 
-</p>
+        <h3>
+            Program Adiwiyata memberikan manfaat strategis, antara lain:
+        </h3>
 
-<p>2.Membentuk karakter peserta didik yang peduli lingkungan
 
-</p>
+        <ol class="manfaat">
 
-<p>3.Mendorong budaya sekolah yang bersih, sehat, dan hijau
+            <li>
+                Meningkatkan kualitas dan kenyamanan lingkungan sekolah
+            </li>
 
-</p>
+            <li>
+                Membentuk karakter peserta didik yang peduli lingkungan
+            </li>
 
-<p>4.Meningkatkan kapasitas guru dalam pendidikan lingkungan hidup
+            <li>
+                Mendorong budaya sekolah yang bersih, sehat, dan hijau
+            </li>
 
-</p>
+            <li>
+                Meningkatkan kapasitas guru dalam pendidikan lingkungan hidup
+            </li>
 
-<p>5.Menjadi nilai tambah dalam akreditasi dan prestasi sekolah
+            <li>
+                Menjadi nilai tambah dalam akreditasi dan prestasi sekolah
+            </li>
 
-</p>
+            <li>
+                Memperkuat kolaborasi antara sekolah, orang tua, dan masyarakat
+            </li>
 
-<p>6.Memperkuat kolaborasi antara sekolah, orang tua, dan masyarakat
+        </ol>
 
-</p>
 
-<hr>
+        <hr class="garis">
 
-<h2>Hukum</h2>
 
-<p>
-Program Adiwiyata dilaksanakan berdasarkan Peraturan Menteri Lingkungan Hidup/Badan Pengendalian Lingkungan Hidup Republik Indonesia Nomor 5 Tahun 2025 tentang Penyelenggaraan Program Adiwiyata.</p>
+        <!-- HUKUM -->
 
-<p>Tautan Permen Nomor 5 Tahun 2025 </p>
-<p></p>
+        <h2>
+            Hukum
+        </h2>
 
-<a class="btn" href="https://drive.google.com/file/d/11E_qrjbMhh2BXUC6NhqeIzCPoh46YoH4/view" target="_blank">
-    📄 Buka Peraturan Adiwiyata
-</a>
 
-<br>
+        <p>
+            Program Adiwiyata dilaksanakan berdasarkan Peraturan Menteri
+            Lingkungan Hidup/Badan Pengendalian Lingkungan Hidup Republik
+            Indonesia Nomor 5 Tahun 2025 tentang Penyelenggaraan Program
+            Adiwiyata.
+        </p>
 
-<button class="btn" onclick="window.location.href='index.html'">
-🏠 Kembali ke Beranda
-</button>
+
+        <p>
+            Tautan Permen Nomor 5 Tahun 2025
+        </p>
+
+
+        <a
+            class="btn-peraturan"
+            href="https://drive.google.com/file/d/11E_qrjbMhh2BXUC6NhqeIzCPoh46YoH4/view"
+            target="_blank"
+        >
+            📄 Buka Peraturan Adiwiyata
+        </a>
+
+
+        <br>
+
+
+        <a
+            class="btn-kembali"
+            href="index.html"
+        >
+            🏠 Kembali ke Beranda
+        </a>
+
+
+    </div>
 
 </div>
 
-</div>
 
 </body>
 </html>
